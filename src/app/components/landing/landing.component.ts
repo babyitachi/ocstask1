@@ -37,6 +37,9 @@ export class LandingComponent implements OnInit {
 
   public fetchRepos() { // method for getting data of organization based on n value
     try {
+      if(this.orgval.errors||this.nval.errors||this.mval.errors){ // added check for enter key
+        return;
+      }
       let repoDetails = new RepoDetails();
       repoDetails.organization = this.orgval.value;
       repoDetails.n = this.nval.value;

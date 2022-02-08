@@ -1,7 +1,7 @@
 <div class="form-wrapper">
   <mat-form-field>
     <mat-select disableOptionCentering="true" panelClass="drp" placeholder="Organization" name="Organization"
-      [formControl]="orgval" required>
+      [formControl]="orgval" (keyup.enter)="fetchRepos()" required>
       <mat-option *ngFor="let org of organizationList" [value]="org.value">
         {{org.viewValue}}
       </mat-option>
@@ -9,11 +9,11 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput type="number" placeholder="N (Top repos)" [formControl]="nval" required>
+    <input matInput type="number" placeholder="N (Top repos)" [formControl]="nval" (keyup.enter)="fetchRepos()" required>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput type="number" placeholder="M (Oldest Forks)" [formControl]="mval" required>
+    <input matInput type="number" placeholder="M (Oldest Forks)" [formControl]="mval" (keyup.enter)="fetchRepos()" required>
   </mat-form-field>
 
   <button mat-raised-button color="primary" [disabled]="orgval.errors||nval.errors||mval.errors"
