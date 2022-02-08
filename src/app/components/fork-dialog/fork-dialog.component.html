@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>{{data.product}}</h1>
+<div mat-dialog-content *ngIf="forks.length">
+  <ul>
+    <li *ngFor="let fork of forks">
+      <a [href]="fork.html_url">{{fork.owner.login}}</a>
+    </li>
+  </ul>
+</div>
+<mat-dialog-actions fxLayoutAlign="end end">
+  <button mat-button mat-dialog-close>close</button>
+</mat-dialog-actions>

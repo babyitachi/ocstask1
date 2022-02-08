@@ -1,0 +1,45 @@
+<div class="form-wrapper">
+  <mat-form-field>
+    <mat-select disableOptionCentering="true" panelClass="drp" placeholder="Organization" name="Organization"
+      [formControl]="orgval" required>
+      <mat-option *ngFor="let org of organizationList" [value]="org.value">
+        {{org.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number" placeholder="N (Top repos)" [formControl]="nval" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number" placeholder="M (Oldest Forks)" [formControl]="mval" required>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" [disabled]="orgval.errors||nval.errors||mval.errors"
+    (click)="fetchRepos()">Fetch</button>
+</div>
+<div class="results-wrapper">
+  <div class="bottom-padding-2">
+    <mat-spinner *ngIf="searching"></mat-spinner>
+  </div>
+  <div class="expansion-panel-wrapper bottom-padding-2" *ngIf="results.length">
+    <mat-expansion-panel *ngFor="let re of results;let i=index">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{i+1}}. {{re.name}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="expansion-content">
+        <span class="flex">
+          <mat-icon class="icon">book</mat-icon>
+          <a [href]="re.html_url" target="_blank" class="font-bold pointer">{{re.full_name}}</a>
+        </span>
+        <span class="grey">{{re.description}}</span>
+        <br/>
+        <span>Forks: <span class="font-bold">{{re.forks?re.forks:0}}</span> | Forkers: <u class="pointer" (click)="fetchForksinDialog(re.name)">View</u></span>
+      </div>
+    </mat-expansion-panel>
+  </div>
+</div>

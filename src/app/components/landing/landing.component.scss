@@ -1,0 +1,57 @@
+.form-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  padding: 2%;
+  gap: 3%;
+}
+
+.drp{
+  margin-top: 15%;
+}
+
+.results-wrapper{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.expansion-panel-wrapper{
+  width: 50%;
+}
+
+.bottom-padding-2{
+  padding: 0 0 2% 0;
+}
+
+.expansion-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.font-bold{
+  font-weight: bold;
+}
+
+.grey{
+  color: grey;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.flex{
+  display: flex;
+}
+
+.blue{
+  color: blue;
+}
+
+.icon{
+  transform: scale(0.7);
+}
