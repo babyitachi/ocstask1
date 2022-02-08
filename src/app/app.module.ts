@@ -34,6 +34,6 @@ import { ForkDialogComponent } from './components/fork-dialog/fork-dialog.compon
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[ForkDialogComponent]
+  entryComponents:[ForkDialogComponent] // adding fork component here to use it as an entry component in dialog popup
 })
 export class AppModule { }

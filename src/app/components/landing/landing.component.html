@@ -21,7 +21,7 @@
 </div>
 <div class="results-wrapper">
   <div class="bottom-padding-2">
-    <mat-spinner *ngIf="searching"></mat-spinner>
+    <mat-spinner *ngIf="isSearching"></mat-spinner>
   </div>
   <div class="expansion-panel-wrapper bottom-padding-2" *ngIf="results.length">
     <mat-expansion-panel *ngFor="let re of results;let i=index">
